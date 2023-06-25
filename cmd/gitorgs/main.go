@@ -18,9 +18,10 @@ var gitConfigTemplate string
 var includeIfTemplate string
 
 type ConfigData struct {
-	Email string
-	Key   string
-	Dir   string
+	Email      string
+	SigningKey string
+	Key        string
+	Dir        string
 }
 
 func availableSshKeys() []string {
@@ -116,6 +117,20 @@ func main() {
 		os.Exit(1)
 	}
 	d.Key = s
+
+	qs = []*survey.Question{
+		{
+			Name: "SigningKey",
+			Prompt: &survey.Input{
+				Message: "Signing Key:",
+			},
+		},
+	}
+	err = survey.Ask(qs, d)
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
 
 	wd, _ := os.Getwd()
 	d.Dir = wd
