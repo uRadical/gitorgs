@@ -125,6 +125,7 @@ func main() {
 			Name: "SigningKey",
 			Prompt: &survey.Input{
 				Message: "Signing Key:",
+				Help:    "use gpg --list-keys to see your available keys, then paste the key ID here",
 			},
 		},
 	}

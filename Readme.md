@@ -39,3 +39,5 @@ appropriate `includeIf` in yor global `.gitconfig`.
 1. run `gitorgs`
 1. update `~/.gitconfig` with the `includeIf` that was output from `gitorgs` command
 1. clone the repos belonging to this organisation
+
+To set your GPG signing key you will need to run `gpg --list-keys` and copy/paste the key you wish to use. 
