@@ -1,3 +1,1 @@
-[includeIf "gitdir:{{.Dir}}/"]
-    path = {{.Dir}}/.gitconfig
-
+echo '#GitOrgs {{.Org}}\n[includeIf "gitdir:{{.Dir}}/"]\n\tpath = {{.Dir}}/.gitconfig\n' >> ~/.gitconfig

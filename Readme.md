@@ -1,13 +1,11 @@
 # gitorgs
 
-This tool makes working with different Git organizations easier. It allows you to setup a git configuration per
-organisation containing the ssh key and email address to use for the organisation. 
+This tool makes working with different GitHub organizations easier. It allows you to setup a git configuration per
+organisation containing the ssh key, email address and gpg signing key to use for the organisation. 
 
 Using this tool you can setup a structure like this. Your global `.gitconfig` will have the default settings. You can  
 override these settings per organisation with a `.gitconfig` in the organisation root folder and adding the 
 appropriate `includeIf` in yor global `.gitconfig`.
-
-You can now set an organisation specific ssh key and email
 
 ```shell
 ~/
@@ -37,7 +35,7 @@ You can now set an organisation specific ssh key and email
 ```
 
 ## Usage
-- Navigate to the directory you would like to use as the root of your organisation.
-- run `gitorgs`
-- update `~/.gitconfig` with the `includeIf` that was output from `gitorgs` command
-- clone the repos belonging to this organisation
+1. Navigate to the directory you would like to use as the root of your organisation.
+1. run `gitorgs`
+1. update `~/.gitconfig` with the `includeIf` that was output from `gitorgs` command
+1. clone the repos belonging to this organisation

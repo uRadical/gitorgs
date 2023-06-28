@@ -4,6 +4,7 @@ import (
 	_ "embed"
 	"fmt"
 	"os"
+	"path"
 	"strings"
 	"text/template"
 
@@ -22,6 +23,7 @@ type ConfigData struct {
 	SigningKey string
 	Key        string
 	Dir        string
+	Org        string
 }
 
 func availableSshKeys() []string {
@@ -72,7 +74,7 @@ func writeGitConfig(d *ConfigData) {
 }
 
 func globalGitConfigIncludeIf(d *ConfigData) {
-	fmt.Println("Add the following to your global gitconfig:")
+	fmt.Println("Run the following to update your global gitconfig:")
 	tmpl, err := template.New("gitconfig").Parse(includeIfTemplate)
 	if err != nil {
 		fmt.Println("Error:", err)
@@ -134,6 +136,7 @@ func main() {
 
 	wd, _ := os.Getwd()
 	d.Dir = wd
+	d.Org = path.Base(wd)
 
 	writeGitConfig(d)
 
